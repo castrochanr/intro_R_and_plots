@@ -60,4 +60,4 @@ a
 getwd() #para ver mi directorio de trabajo
 setwd("/home/rcastro/Documentos/intro_R_and_plots") # es por si requiero configurar mi directorio
 ```
-
+Todo embebido
