@@ -1,8 +1,80 @@
 ---
-title: "intro_R_and_plots"
+title: "Introducción a R y a los gráficos en R"
 author: "Ricardo Castro"
 date: "2023-02-08"
 output: html_document
+---
+
+# Prerequisites {-}
+
+- Estar interesados en el uso de R.
+- Instrucciones de instalación y uso extensas en: [R](https://cran.r-project.org/) and [RStudio](https://www.rstudio.com/).
+- No rendirse.
+
+
+
+## Setup Instructions {-}
+Mientras [**R**](https://cran.r-project.org/) es el software colaborativo y de acceso libre, [**RStudio**](https://www.rstudio.com/) es un entorno de desarrollo integrado (IDE) para R, pobablemente 
+el más usado. R no es tan amigable como para usarlo sólo. RStudio por otro lado hace que el uso de R sea más sencillo y eficiente, además de integrar software de terceros para su uso con R
+
+
+### macOS {-}
+
+#### Si ya tiene instalado R y RStudio, actualizalos {-}
+
+* Abre y en la opción de "Help" > "Check for updates". Si hay una versión nueva, actualiza.
+* R también puede ser actualizado, al abrir RStudio aparecera su version de R.
+  En la página del CRAN puede cotejar la version que tiene con la más actual, puede descargar e instalarm the [CRAN website](https://cran.r-project.org/bin/macosx/).
+
+#### Si no tienes R and RStudio instalados {-}
+
+* Descargue R
+  the [CRAN website](http://cran.r-project.org/bin/macosx).
+* Seleccione el arhivo de extrnesión`.pkg`  del alultima verisón
+* Descargue para instalar
+* Vaya a la pagina de [RStudio download page](https://posit.co/download/rstudio-desktop/)
+* Selecciones el ejecutable para su sistema
+* En su carpeta de descargas doble click sobre el archivo de RStudio para instalar
+
+### Windows {-}
+
+#### Si ya tiene instalado R y RStudio, actualizalos {-}
+
+* Siga las mismas instrucciones que en el parrafo anterior. Si hay nuevas versiones, aculaice R y RStudio.
+* Vea si la ultima versión de R es la que ud. tiene. Vaya a 
+  the [CRAN website](https://cran.r-project.org/bin/windows/base/) y cheque la versión. Ud puede desinstalar con sus herramientas de gestion de windows.
+
+
+#### Si no tienes R and RStudio instalados {-}
+
+* Descargue Rde
+  the [CRAN website](https://cran.r-project.org/) para sus sistema, extensión ".exe".
+* Doble click en archivo e instale.
+* Para RStudio, vaya a la pagina de [RStudio download page](https://posit.co/download/rstudio-desktop/)
+* Selecciones el ejecutable para su sistema
+* En su carpeta de descargas doble click sobre el archivo de RStudio para instalar.
+
+
+
+### Linux {-}
+
+* El tran tiene instrucciones para las distintas distribuciones, revise e instale [CRAN](https://cloud.r-project.org/bin/linux). Se recomienda usar su gestor de paquetes para actualizar  (e.g., for Debian/Ubuntu corra
+  `sudo apt-get install r-base`, and for Fedora `sudo yum install R`), pero suele suceder que esta version esté desactualizada
+* vaya a [RStudio download page](https://posit.co/download/rstudio-desktop/)
+* Seleccione la version de su sistema e instale según sea pertinente para su distribución (e.g., with Debian/Ubuntu `sudo dpkg -i
+  rstudio-x.yy.zzz-amd64.deb` en la terminal).
+
+
+## Acknowledgements {-}
+Una fracción de este material es una adaptación de https://cengel.github.io/R-intro/
+
+
+
+
+
+
+
+
 ---
 
 ```{r setup, include=FALSE}

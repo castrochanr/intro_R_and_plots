@@ -13,7 +13,7 @@
 
 <meta name="date" content="2023-02-08" />
 
-<title>intro_R_and_plots</title>
+<title>Introducción a R y a los gráficos en R</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -350,13 +350,107 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">intro_R_and_plots</h1>
+<h1 class="title toc-ignore">Introducción a R y a los gráficos en R</h1>
 <h4 class="author">Ricardo Castro</h4>
 <h4 class="date">2023-02-08</h4>
 
 </div>
 
 
+<div id="prerequisites" class="section level1 unnumbered">
+<h1 class="unnumbered">Prerequisites</h1>
+<ul>
+<li>Estar interesados en el uso de R.</li>
+<li>Instrucciones de instalación y uso extensas en: <a href="https://cran.r-project.org/">R</a> and <a href="https://www.rstudio.com/">RStudio</a>.</li>
+<li>No rendirse.</li>
+</ul>
+<div id="setup-instructions" class="section level2 unnumbered">
+<h2 class="unnumbered">Setup Instructions</h2>
+<p>Mientras <a href="https://cran.r-project.org/"><strong>R</strong></a>
+es el software colaborativo y de acceso libre, <a href="https://www.rstudio.com/"><strong>RStudio</strong></a> es un
+entorno de desarrollo integrado (IDE) para R, pobablemente el más usado.
+R no es tan amigable como para usarlo sólo. RStudio por otro lado hace
+que el uso de R sea más sencillo y eficiente, además de integrar
+software de terceros para su uso con R</p>
+<div id="macos" class="section level3 unnumbered">
+<h3 class="unnumbered">macOS</h3>
+<div id="si-ya-tiene-instalado-r-y-rstudio-actualizalos" class="section level4 unnumbered">
+<h4 class="unnumbered">Si ya tiene instalado R y RStudio,
+actualizalos</h4>
+<ul>
+<li>Abre y en la opción de “Help” &gt; “Check for updates”. Si hay una
+versión nueva, actualiza.</li>
+<li>R también puede ser actualizado, al abrir RStudio aparecera su
+version de R. En la página del CRAN puede cotejar la version que tiene
+con la más actual, puede descargar e instalarm the <a href="https://cran.r-project.org/bin/macosx/">CRAN website</a>.</li>
+</ul>
+</div>
+<div id="si-no-tienes-r-and-rstudio-instalados" class="section level4 unnumbered">
+<h4 class="unnumbered">Si no tienes R and RStudio instalados</h4>
+<ul>
+<li>Descargue R the <a href="http://cran.r-project.org/bin/macosx">CRAN
+website</a>.</li>
+<li>Seleccione el arhivo de extrnesión<code>.pkg</code> del alultima
+verisón</li>
+<li>Descargue para instalar</li>
+<li>Vaya a la pagina de <a href="https://posit.co/download/rstudio-desktop/">RStudio download
+page</a></li>
+<li>Selecciones el ejecutable para su sistema</li>
+<li>En su carpeta de descargas doble click sobre el archivo de RStudio
+para instalar</li>
+</ul>
+</div>
+</div>
+<div id="windows" class="section level3 unnumbered">
+<h3 class="unnumbered">Windows</h3>
+<div id="si-ya-tiene-instalado-r-y-rstudio-actualizalos-1" class="section level4 unnumbered">
+<h4 class="unnumbered">Si ya tiene instalado R y RStudio,
+actualizalos</h4>
+<ul>
+<li>Siga las mismas instrucciones que en el parrafo anterior. Si hay
+nuevas versiones, aculaice R y RStudio.</li>
+<li>Vea si la ultima versión de R es la que ud. tiene. Vaya a the <a href="https://cran.r-project.org/bin/windows/base/">CRAN website</a> y
+cheque la versión. Ud puede desinstalar con sus herramientas de gestion
+de windows.</li>
+</ul>
+</div>
+<div id="si-no-tienes-r-and-rstudio-instalados-1" class="section level4 unnumbered">
+<h4 class="unnumbered">Si no tienes R and RStudio instalados</h4>
+<ul>
+<li>Descargue Rde the <a href="https://cran.r-project.org/">CRAN
+website</a> para sus sistema, extensión “.exe”.</li>
+<li>Doble click en archivo e instale.</li>
+<li>Para RStudio, vaya a la pagina de <a href="https://posit.co/download/rstudio-desktop/">RStudio download
+page</a></li>
+<li>Selecciones el ejecutable para su sistema</li>
+<li>En su carpeta de descargas doble click sobre el archivo de RStudio
+para instalar.</li>
+</ul>
+</div>
+</div>
+<div id="linux" class="section level3 unnumbered">
+<h3 class="unnumbered">Linux</h3>
+<ul>
+<li>El tran tiene instrucciones para las distintas distribuciones,
+revise e instale <a href="https://cloud.r-project.org/bin/linux">CRAN</a>. Se recomienda
+usar su gestor de paquetes para actualizar (e.g., for Debian/Ubuntu
+corra <code>sudo apt-get install r-base</code>, and for Fedora
+<code>sudo yum install R</code>), pero suele suceder que esta version
+esté desactualizada</li>
+<li>vaya a <a href="https://posit.co/download/rstudio-desktop/">RStudio
+download page</a></li>
+<li>Seleccione la version de su sistema e instale según sea pertinente
+para su distribución (e.g., with Debian/Ubuntu
+<code>sudo dpkg -i   rstudio-x.yy.zzz-amd64.deb</code> en la
+terminal).</li>
+</ul>
+</div>
+</div>
+<div id="acknowledgements" class="section level2 unnumbered">
+<h2 class="unnumbered">Acknowledgements</h2>
+<p>Una fracción de este material es una adaptación de <a href="https://cengel.github.io/R-intro/" class="uri">https://cengel.github.io/R-intro/</a></p>
+<hr />
+</div>
 <div id="r-markdown" class="section level2">
 <h2>R Markdown</h2>
 <p>This is an R Markdown document. Markdown is a simple formatting
@@ -401,6 +495,8 @@ a</code></pre>
 <pre class="r"><code>getwd() #para ver mi directorio de trabajo</code></pre>
 <pre><code>## [1] &quot;/home/rcastro/Documentos/intro_R_and_plots&quot;</code></pre>
 <pre class="r"><code>setwd(&quot;/home/rcastro/Documentos/intro_R_and_plots&quot;) # es por si requiero configurar mi directorio</code></pre>
+<p>Todo embebido</p>
+</div>
 </div>
 </div>
 
