@@ -3,6 +3,7 @@ title: "Introducción a R y a los gráficos en R"
 author: "Ricardo Castro"
 date: "2023-02-08"
 output: html_document
+keep_md: true
 ---
 
 
