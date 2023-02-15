@@ -8,9 +8,7 @@ output:
 ---
 
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+
 
 
 ## Prerequisites {-}
@@ -110,7 +108,8 @@ Una fracción de este material es una adaptación de https://cengel.github.io/R-
 
 Definamos _valores_ y después poder asignarlos a _objetos_, mediante el operador de asignación `<-`, Ejemplo:
 
-```{r, purl=FALSE}
+
+```r
 peso_kg <- 55
 ```
 
@@ -151,37 +150,61 @@ in the styling of your code.
 
 When assigning a value to an object, R does not print anything. You can force R to print the value by using parentheses or by typing the object name:
 
-```{r, purl=FALSE}
+
+```r
 weight_kg <- 55    # doesn't print anything
 (weight_kg <- 55)  # but putting parenthesis around the call prints the value of `weight_kg`
+```
+
+```
+## [1] 55
+```
+
+```r
 weight_kg          # and so does typing the name of the object
+```
+
+```
+## [1] 55
 ```
 
 Now that R has `weight_kg` in memory, we can do arithmetic with it. For
 instance, we may want to convert this weight into pounds (weight in pounds is 2.2 times the weight in kg):
 
-```{r, purl=FALSE}
+
+```r
 2.2 * weight_kg
+```
+
+```
+## [1] 121
 ```
 
 We can also change a variable's value by assigning it a new one:
 
-```{r, purl=FALSE}
+
+```r
 weight_kg <- 100
 2.2 * weight_kg
+```
+
+```
+## [1] 220
 ```
 
 This means that assigning a value to one variable does not change the values of
 other variables.  For example, let's store the weight in pounds in a new
 variable, `weight_lb`:
 
-```{r, purl=FALSE}
+
+```r
 weight_lb <- 2.2 * weight_kg
 ```
 
 and then change `weight_kg` to 50.
 
-```{r, purl=FALSE}
+
+```r
 weight_kg <- 50
 ```
 
@@ -215,23 +238,30 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-```{r cars}
+
+```r
 summary(cars)
+```
+
+```
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
 ```
 
 ## Including Plots
 
 You can also embed plots, for example:
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+![](intro_r_and_plots_files/figure-html/pressure-1.png)<!-- -->
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
-```{r}
 
-```
  
 ## Introducción a objetos de R 
 
@@ -239,25 +269,40 @@ Vamos a probar algunos comandos de R para objetos
 
 ### Buscando ayuda
 
-```{r}
+
+```r
 ?lm
 ```
  con help
  
-```{r}
+
+```r
 help(objects)
 ```
  
 ### vectores y  listas
 
 vector v
-```{r}
+
+```r
 a<-c(2,1,3,4)
 a
 ```
 
-```{r}
+```
+## [1] 2 1 3 4
+```
+
+
+```r
 getwd() #para ver mi directorio de trabajo
+```
+
+```
+## [1] "/home/rcastro/Documentos/intro_R_and_plots"
+```
+
+```r
 setwd("/home/rcastro/Documentos/intro_R_and_plots") # es por si requiero configurar mi directorio
 ```
 Todo embebido
