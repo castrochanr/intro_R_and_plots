@@ -357,15 +357,16 @@ display: none;
 </div>
 
 
-<div id="prerequisites" class="section level1 unnumbered">
-<h1 class="unnumbered">Prerequisites</h1>
+<div id="prerequisites" class="section level2 unnumbered">
+<h2 class="unnumbered">Prerequisites</h2>
 <ul>
 <li>Estar interesados en el uso de R.</li>
 <li>Instrucciones de instalación y uso extensas en: <a href="https://cran.r-project.org/">R</a> and <a href="https://www.rstudio.com/">RStudio</a>.</li>
 <li>No rendirse.</li>
 </ul>
-<div id="setup-instructions" class="section level2 unnumbered">
-<h2 class="unnumbered">Setup Instructions</h2>
+</div>
+<div id="instalación-del-software" class="section level2 unnumbered">
+<h2 class="unnumbered">Instalación del software</h2>
 <p>Mientras <a href="https://cran.r-project.org/"><strong>R</strong></a>
 es el software colaborativo y de acceso libre, <a href="https://www.rstudio.com/"><strong>RStudio</strong></a> es un
 entorno de desarrollo integrado (IDE) para R, pobablemente el más usado.
@@ -428,8 +429,8 @@ para instalar.</li>
 </ul>
 </div>
 </div>
-<div id="linux" class="section level3 unnumbered">
-<h3 class="unnumbered">Linux</h3>
+<div id="gnulinux" class="section level3 unnumbered">
+<h3 class="unnumbered">GNU/Linux</h3>
 <ul>
 <li>El tran tiene instrucciones para las distintas distribuciones,
 revise e instale <a href="https://cloud.r-project.org/bin/linux">CRAN</a>. Se recomienda
@@ -449,7 +450,114 @@ terminal).</li>
 <div id="acknowledgements" class="section level2 unnumbered">
 <h2 class="unnumbered">Acknowledgements</h2>
 <p>Una fracción de este material es una adaptación de <a href="https://cengel.github.io/R-intro/" class="uri">https://cengel.github.io/R-intro/</a></p>
+<p><a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">Cheat
+sheet Rmarkdown</a></p>
+<p><a href="https://www.ic.fcen.uba.ar/materias/datos/material/rmarkdown-spanish.pdf">Cheat
+sheet Rmarkdown-Español</a></p>
+<p><a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/translations/spanish/rmarkdown_es.pdf">Guía
+rápida Rmarkdown</a></p>
+</div>
+<div id="gettingstarted" class="section level1">
+<h1>Getting Started with R</h1>
+<blockquote>
+<p>Aprendizaje</p>
+<ul>
+<li>Objetos de R: creación y asignación de valores</li>
+<li>Usar los comentarios en los scripts.</li>
+<li>Usar objetos y valores para operaciones aritmeticas.</li>
+<li>Crear e invocar (llamar funciones).</li>
+<li>Revisión de objetos y vectores.</li>
+<li>Obtener subconjuntos de datos de vectores.</li>
+<li>Definir datos perdidos (NAs).</li>
+<li>Uso de la interfaz de <a href>Rstudio</a></li>
+<li>Invocar Ayuda de <a href>R</a></li>
+<li>Buscar ayuda sobre problemas y busqueda de soluciones.</li>
+<li>Descargar, instalar y cargar paquete de R.</li>
+</ul>
+</blockquote>
 <hr />
+<hr />
+<div id="objetos-de-r-creación-y-asignación-de-valores" class="section level2">
+<h2>Objetos de R: creación y asignación de valores</h2>
+<p>Definamos <em>valores</em> y después poder asignarlos a
+<em>objetos</em>, mediante el operador de asignación <code>&lt;-</code>,
+Ejemplo:</p>
+<pre class="r"><code>peso_kg &lt;- 55</code></pre>
+<p><code>&lt;-</code> El operador de asignación es en realidad una
+flecha depentidndo del sentido de la flecha se asignaran los valores, en
+el ejemplo anterior la flecha va de izquierda a derecha, entonces el
+objeto definido es el de la izquierda “pero_kg”, entonces el valor 55
+<strong>se guarda dentro de</strong> <code>peso_kg</code>. También puede
+usar el simbolo <code>=</code> pero no en todos los casos,porque hay <a href="http://blog.revolutionanalytics.com/2008/12/use-equals-or-arrow-for-assignment.html">pequeñas</a>
+<a href="https://web.archive.org/web/20130610005305/https://stat.ethz.ch/pipermail/r-help/2009-March/191462.html">diferencias</a>
+en la sintaxis y es mejor usar <code>&lt;-</code> para evitar cualquier
+conflicto.</p>
+<p>In RStudio, typing <kbd>Alt</kbd> + <kbd>-</kbd> (push <kbd>Alt</kbd>
+at the same time as the <kbd>-</kbd> key) will write <code>&lt;-</code>
+in a single keystroke.</p>
+<p>Here are a few rules as of how to name objects in R.</p>
+<ul>
+<li>Objects can be given any name such as <code>x</code>,
+<code>current_temperature</code>, or <code>subject_id</code>.</li>
+<li>You want your object names to be explicit and not too long.</li>
+<li>They <strong>cannot</strong> start with a number (<code>2x</code> is
+not valid, but <code>x2</code> is).</li>
+<li>R is case sensitive (e.g., <code>weight_kg</code> is different from
+<code>Weight_kg</code>).</li>
+<li>There are some names that cannot be used because they are the names
+of fundamental functions in R (e.g., <code>if</code>, <code>else</code>,
+<code>for</code>, see <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html">here</a>
+for a complete list). In general, even if it is allowed, it’s best to
+not use other function names (e.g., <code>c</code>, <code>T</code>,
+<code>mean</code>, <code>data</code>, <code>df</code>,
+<code>weights</code>). If in doubt, check the help to see if the name is
+already in use.</li>
+<li>It’s also best to avoid dots (<code>.</code>) within a variable name
+as in <code>my.dataset</code>. There are many functions in R with dots
+in their names for historical reasons, but because dots have a special
+meaning in R (for methods) and other programming languages, it is best
+to avoid them.</li>
+<li>It is also recommended to use <em>nouns for variable names</em>, and
+<em>verbs for function names</em>.</li>
+<li>It’s important to be consistent in the styling of your code (where
+you put spaces, how you name variables, etc.). Using a consistent coding
+style makes your code clearer to read for your future self and your
+collaborators.<br />
+In R, three popular style guides are <a href="https://google.github.io/styleguide/Rguide.xml">Google’s</a>, <a href="http://jef.works/R-style-guide/">Jean Fan’s</a> and the <a href="http://style.tidyverse.org/">tidyverse’s</a>. The tidyverse’s is
+very comprehensive and may seem overwhelming at first. You can install
+the <a href="https://github.com/jimhester/lintr"><strong><code>lintr</code></strong></a>
+to automatically check for issues in the styling of your code.</li>
+</ul>
+<p>When assigning a value to an object, R does not print anything. You
+can force R to print the value by using parentheses or by typing the
+object name:</p>
+<pre class="r"><code>weight_kg &lt;- 55    # doesn&#39;t print anything
+(weight_kg &lt;- 55)  # but putting parenthesis around the call prints the value of `weight_kg`</code></pre>
+<pre><code>## [1] 55</code></pre>
+<pre class="r"><code>weight_kg          # and so does typing the name of the object</code></pre>
+<pre><code>## [1] 55</code></pre>
+<p>Now that R has <code>weight_kg</code> in memory, we can do arithmetic
+with it. For instance, we may want to convert this weight into pounds
+(weight in pounds is 2.2 times the weight in kg):</p>
+<pre class="r"><code>2.2 * weight_kg</code></pre>
+<pre><code>## [1] 121</code></pre>
+<p>We can also change a variable’s value by assigning it a new one:</p>
+<pre class="r"><code>weight_kg &lt;- 100
+2.2 * weight_kg</code></pre>
+<pre><code>## [1] 220</code></pre>
+<p>This means that assigning a value to one variable does not change the
+values of other variables. For example, let’s store the weight in pounds
+in a new variable, <code>weight_lb</code>:</p>
+<pre class="r"><code>weight_lb &lt;- 2.2 * weight_kg</code></pre>
+<p>and then change <code>weight_kg</code> to 50.</p>
+<pre class="r"><code>weight_kg &lt;- 50</code></pre>
+<blockquote>
+<h3>
+Challenge
+</h3>
+<p>What do you think is the current content of the object
+<code>weight_lb</code>? 110 or 220?</p>
+</blockquote>
 </div>
 <div id="r-markdown" class="section level2">
 <h2>R Markdown</h2>
