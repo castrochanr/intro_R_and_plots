@@ -12,6 +12,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# "Introducción a R y a los gráficos en R"
 
 ## Prerequisites {-}
 
