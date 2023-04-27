@@ -10,7 +10,7 @@ output:
 
 
 
-# "Introducción a R y a los gráficos en R"
+# "Introducción a R y a los gráficos"
 
 ## Prerequisites {-}
 
@@ -65,7 +65,7 @@ el más usado. R no es tan amigable como para usarlo sólo. RStudio por otro lad
 
 ### GNU/Linux {-}
 
-* El tran tiene instrucciones para las distintas distribuciones, revise e instale [CRAN](https://cloud.r-project.org/bin/linux). Se recomienda usar su gestor de paquetes para actualizar  (e.g., for Debian/Ubuntu corra
+* El Cran tiene instrucciones para las distintas distribuciones, revise e instale [CRAN](https://cloud.r-project.org/bin/linux). Se recomienda usar su gestor de paquetes para actualizar  (e.g., for Debian/Ubuntu corra
   `sudo apt-get install r-base`, and for Fedora `sudo yum install R`), pero suele suceder que esta version esté desactualizada
 * vaya a [RStudio download page](https://posit.co/download/rstudio-desktop/)
 * Seleccione la version de su sistema e instale según sea pertinente para su distribución (e.g., with Debian/Ubuntu `sudo dpkg -i
@@ -73,7 +73,7 @@ el más usado. R no es tan amigable como para usarlo sólo. RStudio por otro lad
 
 
 ## Acknowledgements {-}
-Una fracción de este material es una adaptación de https://cengel.github.io/R-intro/
+Parte de este material es una adaptación de https://cengel.github.io/R-intro/
 
 
 [Cheat sheet Rmarkdown](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
@@ -117,104 +117,76 @@ peso_kg <- 55
 `<-` El operador de asignación es en realidad una flecha depentidndo del sentido de la flecha se asignaran los valores, en el ejemplo anterior la flecha va de izquierda a derecha, entonces el objeto definido es el de la izquierda "pero_kg", entonces el valor 55 **se guarda dentro de** `peso_kg`.  También puede usar el simbolo `=`
 pero no en todos los casos,porque hay [pequeñas](http://blog.revolutionanalytics.com/2008/12/use-equals-or-arrow-for-assignment.html) [diferencias](https://web.archive.org/web/20130610005305/https://stat.ethz.ch/pipermail/r-help/2009-March/191462.html) en la sintaxis y es mejor usar  `<-` para evitar cualquier conflicto.
 
-In RStudio, typing <kbd>Alt</kbd> + <kbd>-</kbd> (push <kbd>Alt</kbd> at the
-same time as the <kbd>-</kbd> key) will write ` <- ` in a single keystroke.
+In RStudio, tecleando <kbd>Alt</kbd> + <kbd>-</kbd> (presione <kbd>Alt</kbd> al mismo tiempo que la tecla <kbd>-</kbd>) Escribirá ` <- `.
 
 Hay ciertas reglas:
 
-- cualquier nombre pueden recibir los objetos, la simpleza es compensada `x`, `current_temperature`, or
+- cualquier nombre pueden recibir los objetos, _la simpleza será recompensada_ `x`, `altura_promedio`, or
 `subject_id`. 
 - Nombres no tan largos.
 - No se recomiendan espacios, ni caráctres especiales.
-- No **no pueden empezar** con números (`2x` es inválido, `x2` está bien). 
-- R es sensible a mayusculas y R no reconoce si no se escribe el nombre identico.
-- There are some names that
-cannot be used because they are the names of fundamental functions in R (e.g., `if`, `else`, `for`, see
-[here](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html) for a complete list). In general, even if it is allowed, it's best to not use other function names (e.g., `c`, `T`, `mean`, `data`, `df`, `weights`). If in doubt, check the help to see if the name is already in use. 
-- It's also best to
-avoid dots (`.`) within a variable name as in `my.dataset`. There are many
-functions in R with dots in their names for historical reasons, but because dots have a special meaning in R (for methods) and other programming languages, it is best to avoid them. 
-- It is also recommended to use *nouns for variable names*, and
-*verbs for function names*. 
-- It's important to be consistent in the styling of your code (where you put spaces, how you name variables, etc.). Using a consistent
-coding style makes your code clearer to read for your future self and your
-collaborators.  
-In R, three popular style guides
-are
+- Los nombres **no pueden empezar** con números (`2x` es inválido, `x2` está bien). 
+- R es sensible a mayúsculas y R no reconoce si no se escribe el nombre identico.
+- Algunos nombres no pueden usarse, porque son comandos de funciones u operadores (pore ejemplo `if`, `else`, `for`, see
+[here](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html) for a complete list). En general, salvo las exepciones mencionadas se puede escribir casi cualquier cosa (Por ejemplo, `c`, `T`, `mean`, `data`, `df`, `weights`).
+
+- Evitar usar "`.`", dentro de nombres de objetos, debido a al lenguaje que se utliza en r y sus paquetes y funciones.
+
+- Debe haber consistencia en el estilo.
+Tres guias de estilo para R
+son
 [Google's](https://google.github.io/styleguide/Rguide.xml),
-[Jean Fan's](http://jef.works/R-style-guide/) and
-the [tidyverse's](http://style.tidyverse.org/). The tidyverse's is very comprehensive
-and may seem overwhelming at first. You can install the 
-[**`lintr`**](https://github.com/jimhester/lintr) to automatically check for issues 
-in the styling of your code.
+[Jean Fan's](http://jef.works/R-style-guide/) y
+[tidyverse's](http://style.tidyverse.org/). Puedes instalar  
+[**`lintr`**](https://github.com/jimhester/lintr) para checar tu estilo en código.
 
 
-When assigning a value to an object, R does not print anything. You can force R to print the value by using parentheses or by typing the object name:
+Una vez que los objetos están guardados, se pueden manipular con R
 
-
-```r
-weight_kg <- 55    # doesn't print anything
-(weight_kg <- 55)  # but putting parenthesis around the call prints the value of `weight_kg`
-```
-
-```
-## [1] 55
-```
-
-```r
-weight_kg          # and so does typing the name of the object
-```
-
-```
-## [1] 55
-```
-
-Now that R has `weight_kg` in memory, we can do arithmetic with it. For
-instance, we may want to convert this weight into pounds (weight in pounds is 2.2 times the weight in kg):
+Por ejemplo, podríamos cambiar el peso de kg a gramos (1kg =1000g):
 
 
 ```r
-2.2 * weight_kg
+1000 * peso_kg
 ```
 
 ```
-## [1] 121
+## [1] 55000
 ```
 
-We can also change a variable's value by assigning it a new one:
+Se puede cambiar el valor de la variable original y luego asignar un nuevo nombre a la variable en gramos:
 
 
 ```r
-weight_kg <- 100
-2.2 * weight_kg
+peso_kg <- 100
+peso_g <-2.2 * peso_kg
 ```
 
-```
-## [1] 220
-```
+### Notas y comentarios
 
-This means that assigning a value to one variable does not change the values of
-other variables.  For example, let's store the weight in pounds in a new
-variable, `weight_lb`:
+Si  en R la fila comienza con `#`, esta línea será ignorada por R y la procesará como comentario
 
 
-```r
-weight_lb <- 2.2 * weight_kg
-```
-
-and then change `weight_kg` to 50.
-
-
-```r
-weight_kg <- 50
-```
-
-> <h3>Challenge</h3>
+> <h3>Pregunta</h3>
+>
+> ¿Cual sería el indice de masa corporal?
+>
 > 
-> What do you think is the current content of the object `weight_lb`? 110 or 220?
+> ```r
+> altura1 <- 38.0            # altura1?
+> altura2 <- 51.2            # altura2?
+> altura3 <- 74.6            # altura3?
+> tiempo1 <- 0             # tiempo1?
+> tiempo2 <- 50             # tiempo2?
+> tiempo3 <- 110             # tiempo3? 
+> 
+> crec1 <- (altura2-altura1)/(tiempo2-tiempo1) * 2.0      # mass?
+> crec2 <- (altura3-altura2)/(tiempo2-tiempo1) 
+> ```
 
 
 
+Estime la taza de crecimiento
 
 
 
